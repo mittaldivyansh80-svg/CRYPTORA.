@@ -1073,7 +1073,7 @@ async function decryptDocument() {
 
 const response =
     await fetch(
-        `${BACKEND_URL}/encrypt`,
+        `${BACKEND_URL}/decrypt`,
         {
             method: "POST",
             body: form
@@ -1179,7 +1179,7 @@ async function loadAudit() {
     audit.innerText = "Checking ledger...";
 
     try {
-        const response = await fetch(`${BACKEND_URL}/enroll`);
+        const response = await fetch(`${BACKEND_URL}/audit`);
         const result = await getResponseData(response);
 
         console.log("CRYPTORA /audit response:", response.status, result);
