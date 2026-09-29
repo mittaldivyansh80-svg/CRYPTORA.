@@ -892,16 +892,14 @@ async function encryptDocument() {
         console.log(
             "Sending /encrypt request..."
         );
-
-
         const response =
-            await fetch(
-                "/encrypt",
-                {
-                    method: "POST",
-                    body: form
-                }
-            );
+           await fetch(
+             `${BACKEND_URL}/encrypt`,
+             {
+              method: "POST",
+            body: form
+             }
+    );
 
 
         const result =
@@ -1074,14 +1072,14 @@ async function decryptDocument() {
             "status pending";
 
 
-        const response =
-            await fetch(
-                "/decrypt",
-                {
-                    method: "POST",
-                    body: form
-                }
-            );
+const response =
+    await fetch(
+        "/encrypt",
+        {
+            method: "POST",
+            body: form
+        }
+    );
 
 
         const result =
