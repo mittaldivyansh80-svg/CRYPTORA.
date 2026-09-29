@@ -56,10 +56,12 @@ if os.path.exists("static"):
 # CORS
 # ============================================================
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -110,10 +112,7 @@ def save_metadata(data):
 async def home(request: Request):
 
     try:
-        return templates.TemplateResponse(
-            "index.html",
-            {"request": request}
-        )
+      return templates.TemplateResponse("index.html", {"request": request})
 
     except Exception as e:
 

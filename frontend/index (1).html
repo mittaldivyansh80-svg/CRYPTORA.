@@ -731,13 +731,14 @@ async function captureEnroll() {
 
 
         const response =
-    await fetch(
-        `${BACKEND_URL}/enroll`,
-        {
-            method: "POST",
-            body: form
-        }
-    );
+            await fetch(
+                `${BACKEND_URL}/enroll`,
+                {
+                    method: "POST",
+                    body: form
+                }
+            );
+
 
         const result =
             await getResponseData(
@@ -891,14 +892,16 @@ async function encryptDocument() {
         console.log(
             "Sending /encrypt request..."
         );
+
+
         const response =
-           await fetch(
-             `${BACKEND_URL}/encrypt`,
-             {
-              method: "POST",
-            body: form
-             }
-    );
+            await fetch(
+                `${BACKEND_URL}/encrypt`,
+                {
+                    method: "POST",
+                    body: form
+                }
+            );
 
 
         const result =
@@ -1071,14 +1074,14 @@ async function decryptDocument() {
             "status pending";
 
 
-const response =
-    await fetch(
-        `${BACKEND_URL}/encrypt`,
-        {
-            method: "POST",
-            body: form
-        }
-    );
+        const response =
+            await fetch(
+                `${BACKEND_URL}/decrypt`,
+                {
+                    method: "POST",
+                    body: form
+                }
+            );
 
 
         const result =
@@ -1179,7 +1182,7 @@ async function loadAudit() {
     audit.innerText = "Checking ledger...";
 
     try {
-        const response = await fetch(`${BACKEND_URL}/enroll`);
+        const response = await fetch(`${BACKEND_URL}/audit`);
         const result = await getResponseData(response);
 
         console.log("CRYPTORA /audit response:", response.status, result);
