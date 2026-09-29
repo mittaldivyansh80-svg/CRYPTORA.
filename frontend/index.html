@@ -1120,12 +1120,14 @@ const response =
                 );
 
 
-            link.href =
-                result.download;
+if (result.download) {
+    link.href = result.download.startsWith("http")
+        ? result.download
+        : BACKEND_URL + result.download;
 
-
-            link.style.display =
-                "inline-flex";
+    link.target = "_blank";
+    link.style.display = "inline-flex";
+}
 
 
         } else {
